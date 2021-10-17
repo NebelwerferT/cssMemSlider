@@ -112,7 +112,9 @@ body {
         height: auto;
     }
     .label-container {
-        margin-top: 1.5rem;
         justify-content: center;
+    }
+    .desc-container span {
+        margin-top: 1.5rem;
     }
 }
