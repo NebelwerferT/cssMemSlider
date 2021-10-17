@@ -1,6 +1,6 @@
 @keyframes slideAnimation {
     from {
-        transform: translateX(100%);
+        transform: translateX(calc(50%));
     }
     to {
         transform: translateX(0);
@@ -98,12 +98,26 @@ body {
     transition: all .5s;
 }
 
-#current-slide-1:checked ~ .second-row .label-container label[for=current-slide-1],
+
+
+
+[for=current-slide-1],
 #current-slide-2:checked ~ .second-row .label-container label[for=current-slide-2],
 #current-slide-3:checked ~ .second-row .label-container label[for=current-slide-3],
 #current-slide-4:checked ~ .second-row .label-container label[for=current-slide-4] {
     background: radial-gradient(transparent 25%, blue 35%, transparent 35%);
 }
+
+#current-slide-2:checked ~ .second-row .label-container label:not([for=current-slide-2]),
+#current-slide-3:checked ~ .second-row .label-container label:not([for=current-slide-3]),
+#current-slide-4:checked ~ .second-row .label-container label:not([for=current-slide-4]) {
+    background: radial-gradient(blue 35%, transparent 35%);
+}
+
+.desc-container .desc-text-1 {
+    display: block;
+}
+
 
 #current-slide-1:checked ~ .second-row .desc-container .desc-text-1,
 #current-slide-2:checked ~ .second-row .desc-container .desc-text-2,
@@ -111,6 +125,12 @@ body {
 #current-slide-4:checked ~ .second-row .desc-container .desc-text-4 {
     animation: slideAnimation .5s;
     display: block;
+}
+
+#current-slide-2:checked ~ .second-row .desc-container span:not(.desc-text-2),
+#current-slide-3:checked ~ .second-row .desc-container span:not(.desc-text-3),
+#current-slide-4:checked ~ .second-row .desc-container span:not(.desc-text-4) {
+    display: none;
 }
 
 @media (max-width: 480px) {
