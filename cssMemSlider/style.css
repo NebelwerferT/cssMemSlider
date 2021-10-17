@@ -1,0 +1,150 @@
+@keyframes slideAnimation {
+    from {
+        transform: translateX(calc(50%));
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    color: white;
+}
+
+.slider-container {
+    overflow: hidden;
+	width: 40rem;
+    margin: 0 auto;
+    background-color: rgb(75, 87, 97);
+    padding: 2rem 2rem 3.5rem;
+}
+
+.image-container {
+    overflow: hidden;
+    width: 40rem;
+}
+
+.slide-image {
+    width: 40rem;
+    height: 40rem;
+}
+
+.image-wrp {
+    display: flex;
+}
+
+.second-row {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.slide-label {
+	width:2rem;
+	height:2rem;
+    background: radial-gradient(blue 35%, transparent 35%);
+	border-radius:50%;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.slide-label:hover {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+    transition: all .5s;
+}
+
+.slide-label:active {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(80%) contrast(103%);
+    transition: all .5s;
+}
+
+.label-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.slide-image {
+    border-radius: 2%;
+}
+
+.current-slide, .label-text, .desc-container span {
+    display: none;
+}
+
+#current-slide-1:checked ~ .image-container .image-wrp {
+    transform: translateX(0%);
+}
+
+#current-slide-2:checked ~ .image-container .image-wrp {
+    transform: translateX(-100%);
+}
+
+#current-slide-3:checked ~ .image-container .image-wrp {
+    transform: translateX(-200%);
+}
+
+#current-slide-4:checked ~ .image-container .image-wrp {
+    transform: translateX(-300%);
+}
+
+.image-wrp {
+    transition: all .5s;
+}
+
+
+
+
+[for=current-slide-1],
+#current-slide-2:checked ~ .second-row .label-container label[for=current-slide-2],
+#current-slide-3:checked ~ .second-row .label-container label[for=current-slide-3],
+#current-slide-4:checked ~ .second-row .label-container label[for=current-slide-4] {
+    background: radial-gradient(transparent 25%, blue 35%, transparent 35%);
+}
+
+#current-slide-2:checked ~ .second-row .label-container label:not([for=current-slide-2]),
+#current-slide-3:checked ~ .second-row .label-container label:not([for=current-slide-3]),
+#current-slide-4:checked ~ .second-row .label-container label:not([for=current-slide-4]) {
+    background: radial-gradient(blue 35%, transparent 35%);
+}
+
+.desc-container .desc-text-1 {
+    display: block;
+}
+
+
+#current-slide-1:checked ~ .second-row .desc-container .desc-text-1,
+#current-slide-2:checked ~ .second-row .desc-container .desc-text-2,
+#current-slide-3:checked ~ .second-row .desc-container .desc-text-3,
+#current-slide-4:checked ~ .second-row .desc-container .desc-text-4 {
+    animation: slideAnimation .5s;
+    display: block;
+}
+
+#current-slide-2:checked ~ .second-row .desc-container span:not(.desc-text-2),
+#current-slide-3:checked ~ .second-row .desc-container span:not(.desc-text-3),
+#current-slide-4:checked ~ .second-row .desc-container span:not(.desc-text-4) {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    .second-row {
+        flex-direction: column;
+    }
+    .slider-container,.image-container, .slide-image {
+        width: calc(100vw - 8rem);
+        height: auto;
+    }
+    .label-container {
+        justify-content: center;
+    }
+    .desc-container span {
+        margin-top: 1.5rem;
+    }
+}
