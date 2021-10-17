@@ -1,0 +1,63 @@
+body {
+    color: white;
+}
+
+.slider-container {
+	width: max-content;
+    margin: 0 auto;
+    background-color: rgb(75, 87, 97);
+    padding: 20px;
+}
+
+.second-row {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.slide-label {
+	width:20px;
+	height:20px;
+    background: radial-gradient(blue 35%, transparent 35%);
+	border-radius:50%;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.slide-label:hover {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+    transition: all .5s;
+}
+
+.label-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.slide-image {
+    border-radius: 2%;
+}
+
+.current-slide, .slide-image, .label-text, .desc-container span {
+    display: none;
+}
+
+.current-slide:checked + .slide-image {
+	display:block;
+}
+
+#current-slide-1:checked ~ .second-row .label-container label[for=current-slide-1],
+#current-slide-2:checked ~ .second-row .label-container label[for=current-slide-2],
+#current-slide-3:checked ~ .second-row .label-container label[for=current-slide-3],
+#current-slide-4:checked ~ .second-row .label-container label[for=current-slide-4] {
+    background: radial-gradient(transparent 25%, blue 35%, transparent 35%);
+}
+
+#current-slide-1:checked ~ .second-row .desc-container .desc-text-1,
+#current-slide-2:checked ~ .second-row .desc-container .desc-text-2,
+#current-slide-3:checked ~ .second-row .desc-container .desc-text-3,
+#current-slide-4:checked ~ .second-row .desc-container .desc-text-4 {
+    display: block;
+}
