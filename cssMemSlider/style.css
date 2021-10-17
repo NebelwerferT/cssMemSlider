@@ -18,7 +18,7 @@ body {
 
 .slider-container {
     overflow: hidden;
-	width: 400px;
+	width: 40rem;
     margin: 0 auto;
     background-color: rgb(75, 87, 97);
     padding: 2rem 2rem 3.5rem;
@@ -26,7 +26,12 @@ body {
 
 .image-container {
     overflow: hidden;
-    width: 400px;
+    width: 40rem;
+}
+
+.slide-image {
+    width: 40rem;
+    height: 40rem;
 }
 
 .image-wrp {
@@ -62,7 +67,7 @@ body {
 .label-container {
     display: flex;
     justify-content: flex-end;
-    gap: 5px;
+    gap: 0.5rem;
 }
 
 .slide-image {
@@ -113,7 +118,7 @@ body {
         flex-direction: column;
     }
     .slider-container,.image-container, .slide-image {
-        width: calc(100vw - 80px);
+        width: calc(100vw - 8rem);
         height: auto;
     }
     .label-container {
