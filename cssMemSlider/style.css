@@ -1,12 +1,31 @@
+@keyframes slideAnimation {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
 body {
     color: white;
 }
 
 .slider-container {
-	width: max-content;
+    overflow: hidden;
+	width: 440px;
     margin: 0 auto;
     background-color: rgb(75, 87, 97);
     padding: 20px;
+}
+
+.image-container {
+    overflow: hidden;
+    width: 440px;
+}
+
+.image-wrp {
+    display: flex;
 }
 
 .second-row {
@@ -40,12 +59,28 @@ body {
     border-radius: 2%;
 }
 
-.current-slide, .slide-image, .label-text, .desc-container span {
+.current-slide, .label-text, .desc-container span {
     display: none;
 }
 
-.current-slide:checked + .slide-image {
-	display:block;
+#current-slide-1:checked ~ .image-container .image-wrp {
+    transform: translateX(0%);
+}
+
+#current-slide-2:checked ~ .image-container .image-wrp {
+    transform: translateX(-100%);
+}
+
+#current-slide-3:checked ~ .image-container .image-wrp {
+    transform: translateX(-200%);
+}
+
+#current-slide-4:checked ~ .image-container .image-wrp {
+    transform: translateX(-300%);
+}
+
+.image-wrp {
+    transition: all .5s;
 }
 
 #current-slide-1:checked ~ .second-row .label-container label[for=current-slide-1],
@@ -59,5 +94,6 @@ body {
 #current-slide-2:checked ~ .second-row .desc-container .desc-text-2,
 #current-slide-3:checked ~ .second-row .desc-container .desc-text-3,
 #current-slide-4:checked ~ .second-row .desc-container .desc-text-4 {
+    animation: slideAnimation .5s;
     display: block;
 }
